@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MVC6Crud.Models
+namespace MageeStudents.Models
 {
     public class Product
     {

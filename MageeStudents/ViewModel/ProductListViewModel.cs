@@ -1,4 +1,4 @@
-﻿namespace MVC6Crud.ViewModel
+﻿namespace MageeStudents.ViewModel
 {
     public class ProductListViewModel
     {

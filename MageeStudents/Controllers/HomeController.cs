@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVC6Crud.Models;
+using MageeStudents.Models;
 using System.Diagnostics;
 
-namespace MVC6Crud.Controllers
+namespace MageeStudents.Controllers
 {
     public class HomeController : Controller
     {
@@ -27,6 +27,16 @@ namespace MVC6Crud.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contacts()
+        {
+            return View();
         }
     }
 }

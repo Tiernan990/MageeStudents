@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MVC6Crud.Data;
-using MVC6Crud.Interfaces;
-using MVC6Crud.Models;
-using MVC6Crud.Service;
-using MVC6Crud.ViewModel;
+using MageeStudents.Data;
+using MageeStudents.Interfaces;
+using MageeStudents.Models;
+using MageeStudents.Service;
+using MageeStudents.ViewModel;
 
-namespace MVC6Crud.Controllers
+namespace MageeStudents.Controllers
 {
     public class StudentController : Controller
     {

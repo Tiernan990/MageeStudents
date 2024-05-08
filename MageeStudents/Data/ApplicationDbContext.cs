@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MVC6Crud.Models;
+using MageeStudents.Models;
 
-namespace MVC6Crud.Data
+namespace MageeStudents.Data
 {
     public class ApplicationDbContext : DbContext
     {

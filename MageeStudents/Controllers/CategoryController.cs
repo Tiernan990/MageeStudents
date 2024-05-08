@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVC6Crud.Data;
-using MVC6Crud.Models;
+using MageeStudents.Data;
+using MageeStudents.Models;
 
-namespace MVC6Crud.Controllers
+namespace MageeStudents.Controllers
 {
     public class CategoryController : Controller
     {

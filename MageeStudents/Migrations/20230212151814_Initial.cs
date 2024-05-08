@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MVC6Crud.Migrations
+namespace MageeStudents.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

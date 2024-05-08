@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using MVC6Crud.Models;
+using MageeStudents.Models;
 
-namespace MVC6Crud.Database
+namespace MageeStudents.Database
 {
     public partial class StudentContext : DbContext
     {

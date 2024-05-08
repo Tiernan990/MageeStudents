@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 
-namespace MVC6Crud.Models
+namespace MageeStudents.Models
 {
     public class Students
     {

@@ -1,4 +1,4 @@
-namespace MVC6Crud.Models
+namespace MageeStudents.Models
 {
     public class ErrorViewModel
     {

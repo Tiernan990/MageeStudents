@@ -1,13 +1,13 @@
-﻿using MVC6Crud.Database;
-using MVC6Crud.Interfaces;
-using MVC6Crud.Models;
+﻿using MageeStudents.Database;
+using MageeStudents.Interfaces;
+using MageeStudents.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using System;
 
-namespace MVC6Crud.Service
+namespace MageeStudents.Service
 {
     // CRUD actions
     public class StudentRepository : IStudentRepository

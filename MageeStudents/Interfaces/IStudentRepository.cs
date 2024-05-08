@@ -1,7 +1,7 @@
-﻿using MVC6Crud.Models;
+﻿using MageeStudents.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MVC6Crud.Interfaces
+namespace MageeStudents.Interfaces
 {
     public interface IStudentRepository
     {

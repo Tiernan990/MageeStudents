@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using MVC6Crud.Data;
-using MVC6Crud.Database;
-using MVC6Crud.Interfaces;
-using MVC6Crud.Service;
+using MageeStudents.Data;
+using MageeStudents.Database;
+using MageeStudents.Interfaces;
+using MageeStudents.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,8 +54,8 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
-pattern: "{controller=Student}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+//pattern: "{controller=Student}/{action=Index}/{id?}");
 
 app.Run();
 
@@ -65,7 +65,7 @@ app.Run();
 //builder.Services.AddControllersWithViews();
 //builder.Services.AddDbContext<ApplicationDbContext>(
 //    options => options.UseSqlServer(
-//        builder.Configuration.GetConnectionString("MVC6CrudConnetionString")
+//        builder.Configuration.GetConnectionString("MageeStudentsConnetionString")
 //        )
 //    );
 

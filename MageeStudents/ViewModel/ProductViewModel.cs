@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
-namespace MVC6Crud.ViewModel
+namespace MageeStudents.ViewModel
 {
     public class ProductViewModel
     {

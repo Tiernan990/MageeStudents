@@ -66,14 +66,13 @@ namespace MageeStudents.Service
         }
 
 
-        public async Task<bool> DeleteStudentConfirmed(int id)
+        public bool DeleteStudent(int id)
         {
             if (IsStudentsExist(id))
             {
-                var student = await _context.Students.FindAsync(id);
-
+                var student = _context.Students.Find(id);
                 _context.Students.Remove(student);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
                 return true;
             }
 
@@ -98,48 +97,36 @@ namespace MageeStudents.Service
             return _context.Students.FirstOrDefault(stu => stu.Id == studentId);
         }
 
-        bool IStudentRepository.DeleteStudentConfirmed(int id)
+        bool IStudentRepository.EditStudent(Students updatedStudent)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                var student = _context.Students.Find(updatedStudent.Id);
 
-        void  IStudentRepository.EditStudent(Students updatedStudent)
-        {
-                try
-                {
-                    var student = _context.Students.Find(updatedStudent.Id);
+                student.FirstName = updatedStudent.FirstName;
+                student.Surname = updatedStudent.Surname;
+                student.Telephone = updatedStudent.Telephone;
+                student.Email = updatedStudent.Email;
+                student.CountryOfOrigin = updatedStudent.CountryOfOrigin;
+                student.Age = updatedStudent.Age;
 
-                    student.FirstName = updatedStudent.FirstName;
-                    student.Surname = updatedStudent.Surname;
-                    student.Telephone = updatedStudent.Telephone;
-                    student.Email = updatedStudent.Email;
-                    student.CountryOfOrigin = updatedStudent.CountryOfOrigin;
-                    student.Age = updatedStudent.Age;
+                _context.Update(student);
+                _context.SaveChanges();
 
-
-                    // ToDo - other fields
-
-                    _context.Update(student);
-                    _context.SaveChanges();
-
-                    //return student;
-                }
-                catch (Exception)
-                {
-                    if (!IsStudentsExist(updatedStudent.Id))
-                    {
-                       // return null;
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
-        Students IStudentRepository.InsertStudent(Students student)
+        bool IStudentRepository.InsertStudent(Students student)
         {
-            throw new NotImplementedException();
+            _context.Students.Add(student);
+            _context.SaveChanges();
+
+            return true;
         }
 
         #endregion

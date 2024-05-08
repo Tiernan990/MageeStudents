@@ -24,152 +24,63 @@ namespace MageeStudents.Controllers
         {
             IEnumerable<Students> students = _studentRepository.RetrieveAllStudents();
             return View(students);
-
-            //List<ProductListViewModel> productListViewModelList = new List<ProductListViewModel>();
-            //var productList = _context.Products;
-            //if (productList != null)
-            //{
-            //    foreach (var item in productList)
-            //    {
-            //        ProductListViewModel productListViewModel = new ProductListViewModel();
-            //        productListViewModel.Id = item.Id;
-            //        productListViewModel.Name = item.Name;
-            //        productListViewModel.Description = item.Description;
-            //        productListViewModel.Color = item.Color;
-            //        productListViewModel.Price = item.Price;
-            //        productListViewModel.CategoryId = item.CategoryId;
-            //        productListViewModel.Image = item.Image;
-            //        productListViewModel.CategoryName = _context.Categories.Where(c => c.CategoryId == item.CategoryId).Select(c => c.CategoryName).FirstOrDefault();
-            //        productListViewModelList.Add(productListViewModel);
-            //    }
-            //}
-            //return View(productListViewModelList);           
         }
 
+        // button click from page (New Student)
         public IActionResult Create()
         {
-            ProductViewModel productCreateViewModel = new ProductViewModel();
-            //productCreateViewModel.Category = (IEnumerable<SelectListItem>)_context.Categories.Select(c => new SelectListItem()
-            //{
-            //    Text = c.CategoryName,
-            //    Value = c.CategoryId.ToString()
-            //});
-
-            return View(productCreateViewModel);
+            Students students = new Students();
+            return View(students);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(ProductViewModel productCreateViewModel)
+        public IActionResult Create(Students newStudent)
         {
-            //productCreateViewModel.Category = (IEnumerable<SelectListItem>)_context.Categories.Select(c => new SelectListItem()
-            //{
-            //    Text = c.CategoryName,
-            //    Value = c.CategoryId.ToString()
-            //});
-            //var product = new Product()
-            //{
-            //    Name = productCreateViewModel.Name,
-            //    Description = productCreateViewModel.Description,
-            //    Price = productCreateViewModel.Price,
-            //    Color = productCreateViewModel.Color,
-            //    CategoryId = productCreateViewModel.CategoryId,
-            //    Image = productCreateViewModel.Image
-            //};
-            //ModelState.Remove("Category");
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Products.Add(product);
-            //    _context.SaveChanges();
-            //    TempData["SuccessMsg"] = "Product ("+ product.Name + ") added successfully.";
-            //    return RedirectToAction("Index");
-            //}
 
-            //return View(productCreateViewModel);
+            if (ModelState.IsValid)
+            {
+                _studentRepository.InsertStudent(newStudent);
+                return RedirectToAction("Index");
+            }
+            else return BadRequest();
+        }
 
-            return View(productCreateViewModel);
+        [HttpPost]
+        public IActionResult Edit(Students student)
+        {
+            try
+            {
+                _studentRepository.EditStudent(student);
+                //return View(student);
+                TempData["SuccessMsg"] = "Student (" + student.FirstName + " " + student.Surname + ") updated successfully.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["SuccessMsg"] = "Student (" + student.FirstName + " " + student.Surname + ") was not updated successfully. Error " + ex.Message;
+                return RedirectToAction("Index");
+            }
         }
 
         public IActionResult Edit(int Id)
         {
             Students? student = _studentRepository.RetrieveStudentById(Id);
-
-            //var productToEdit = _context.Products.Find(id);
-            //if (productToEdit != null)
-            //{
-            //    var productViewModel = new ProductViewModel()
-            //    {
-            //        Id = productToEdit.Id,
-            //        Name = productToEdit.Name,
-            //        Description = productToEdit.Description,
-            //        Price = productToEdit.Price,
-            //        CategoryId = productToEdit.CategoryId,
-            //        Color = productToEdit.Color,
-            //        Image = productToEdit.Image,
-            //        Category = (IEnumerable<SelectListItem>)_context.Categories.Select(c => new SelectListItem()
-            //        {
-            //            Text = c.CategoryName,
-            //            Value = c.CategoryId.ToString()                        
-            //        })
-            //    };
-            //    return View(productViewModel);
-            //}
-            //else
-            //{
-            //    return NotFound();
-            //}
-
+            return View(student);
+        }
+        
+        public IActionResult Delete(int Id)
+        {
+            Students student = _studentRepository.RetrieveStudentById(Id);
             return View(student);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Students student)
+        public IActionResult DeleteStudent(int Id)
         {
-            _studentRepository.EditStudent(student);
-            return View(student);
-        }
-        public IActionResult Delete(int? id)
-        {
-            //var productToEdit = _context.Products.Find(id);
-            //if (productToEdit != null)
-            //{
-            //    var productViewModel = new ProductViewModel()
-            //    {
-            //        Id = productToEdit.Id,
-            //        Name = productToEdit.Name,
-            //        Description = productToEdit.Description,
-            //        Price = productToEdit.Price,
-            //        CategoryId = productToEdit.CategoryId,
-            //        Color = productToEdit.Color,
-            //        Image = productToEdit.Image,
-            //        Category = (IEnumerable<SelectListItem>)_context.Categories.Select(c => new SelectListItem()
-            //        {
-            //            Text = c.CategoryName,
-            //            Value = c.CategoryId.ToString()
-            //        })
-            //    };
-            //    return View(productViewModel);
-            //}
-            //else {
-            //    return RedirectToAction("Index");
-            //}            
+            var isDeleted = _studentRepository.DeleteStudent(Id);
+            if (isDeleted) TempData["SuccessMsg"] = "Student (" + Id + ") deleted successfully.";
 
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult DeleteProduct(int? id)
-        {
-            //var product = _context.Products.Find(id);
-            //if (product == null)
-            //{
-            //    return NotFound();
-            //}
-            //_context.Products.Remove(product);
-            //_context.SaveChanges();
-            //TempData["SuccessMsg"] = "Product (" + product.Name + ") deleted successfully.";
             return RedirectToAction("Index");
         }
     }

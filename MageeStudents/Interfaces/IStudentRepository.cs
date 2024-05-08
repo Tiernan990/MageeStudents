@@ -7,8 +7,8 @@ namespace MageeStudents.Interfaces
     {
         List<Students> RetrieveAllStudents();
         Students? RetrieveStudentById(int studentId);
-        bool DeleteStudentConfirmed(int id);
-        void EditStudent(Students student);
-        Students InsertStudent(Students student);
+        bool DeleteStudent(int id);
+        bool EditStudent(Students student);
+        bool InsertStudent(Students student);
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MageeStudents.Models;
+using InternationalStudents.Models;
 using System.Diagnostics;
 
-namespace MageeStudents.Controllers
+namespace InternationalStudents.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using MageeStudents.Models;
+using InternationalStudents.Models;
 
-namespace MageeStudents.Database
+namespace InternationalStudents.Database
 {
     public partial class StudentContext : DbContext
     {

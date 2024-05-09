@@ -1,13 +1,13 @@
-﻿using MageeStudents.Database;
-using MageeStudents.Interfaces;
-using MageeStudents.Models;
+﻿using InternationalStudents.Database;
+using InternationalStudents.Interfaces;
+using InternationalStudents.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using System;
 
-namespace MageeStudents.Service
+namespace InternationalStudents.Service
 {
     // CRUD actions
     public class StudentRepository : IStudentRepository

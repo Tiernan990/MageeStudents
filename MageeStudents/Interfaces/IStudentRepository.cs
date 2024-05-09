@@ -1,7 +1,7 @@
-﻿using MageeStudents.Models;
+﻿using InternationalStudents.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MageeStudents.Interfaces
+namespace InternationalStudents.Interfaces
 {
     public interface IStudentRepository
     {

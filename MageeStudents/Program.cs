@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using MageeStudents.Database;
-using MageeStudents.Interfaces;
-using MageeStudents.Service;
+using InternationalStudents.Database;
+using InternationalStudents.Interfaces;
+using InternationalStudents.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 

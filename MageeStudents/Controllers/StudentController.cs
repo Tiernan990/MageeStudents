@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MageeStudents.Interfaces;
-using MageeStudents.Models;
-using MageeStudents.Service;
+using InternationalStudents.Interfaces;
+using InternationalStudents.Models;
+using InternationalStudents.Service;
  
-namespace MageeStudents.Controllers
+namespace InternationalStudents.Controllers
 {
     public class StudentController : Controller
     {

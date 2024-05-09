@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 
-namespace MageeStudents.Models
+namespace InternationalStudents.Models
 {
     public class Students
     {

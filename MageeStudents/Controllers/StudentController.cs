@@ -9,15 +9,15 @@ namespace MageeStudents.Controllers
 {
     public class StudentController : Controller
     {
-
+        // class variables
         private readonly IStudentRepository _studentRepository;
 
+        // constructor
         public StudentController(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
         }
 
-        
         public IActionResult Index()
         {
             IEnumerable<Students> students = _studentRepository.RetrieveAllStudents();

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 
@@ -25,6 +26,7 @@ namespace MageeStudents.Models
         [Range(1, 150, ErrorMessage = "Please enter valid integer greater than 0 and less than 150")]
         public int Age { get; set; }
 
+        [DisplayName("Country of Origin")]
         [Required(ErrorMessage = "Please enter Country of Origin (less than 50 chars)"), MaxLength(50)]
         public string CountryOfOrigin { get; set; }
     }

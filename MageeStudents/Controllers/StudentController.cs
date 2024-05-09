@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MageeStudents.Data;
 using MageeStudents.Interfaces;
 using MageeStudents.Models;
 using MageeStudents.Service;
-using MageeStudents.ViewModel;
  
 namespace MageeStudents.Controllers
 {

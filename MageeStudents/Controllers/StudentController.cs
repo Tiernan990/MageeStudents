@@ -6,7 +6,7 @@ using MageeStudents.Interfaces;
 using MageeStudents.Models;
 using MageeStudents.Service;
 using MageeStudents.ViewModel;
-
+ 
 namespace MageeStudents.Controllers
 {
     public class StudentController : Controller
@@ -26,7 +26,6 @@ namespace MageeStudents.Controllers
             return View(students);
         }
 
-        // button click from page (New Student)
         public IActionResult Create()
         {
             Students students = new Students();
@@ -51,7 +50,6 @@ namespace MageeStudents.Controllers
             try
             {
                 _studentRepository.EditStudent(student);
-                //return View(student);
                 TempData["SuccessMsg"] = "Student (" + student.FirstName + " " + student.Surname + ") updated successfully.";
                 return RedirectToAction("Index");
             }
